@@ -2,9 +2,9 @@ App.js
 |
 |-MainPanel.js (either MenuPanel.js or GamePanel.js show at any one time)
 | |
-| |-MenuPanel.js
+| |-MenuPanel.tsx
 | |
-| |-GamePanel.js
+| |-GamePanel.tsx
 |
 |
 |-EndPanel.js (dislays over top of MainPanel.js once game is complete or restart is clicked )

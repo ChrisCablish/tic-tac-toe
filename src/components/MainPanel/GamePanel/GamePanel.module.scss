@@ -1,0 +1,32 @@
+.myContainer {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.myRow {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.myCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  height: 6rem;
+  width: 6rem;
+}
+
+@media (min-width: 768px) {
+  .myCol {
+    height: 8.75rem;
+    width: 8.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+}
