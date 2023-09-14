@@ -1,0 +1,51 @@
+.myRow {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.myCol {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  height: 2rem;
+  width: 6rem;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .iconHolder {
+    height: 1.25rem;
+    width: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+  .myCol {
+    height: 3.25rem;
+    width: 8.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+}

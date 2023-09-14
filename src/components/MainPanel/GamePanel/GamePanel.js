@@ -37,8 +37,9 @@ const GamePanel = ({ turn, setTurn }) => {
 
   return (
     <>
-      <Header />
       <Container className={styles.myContainer}>
+        <Header />
+
         {boardState.map((row, rowIndex) => (
           <Row key={rowIndex} className={styles.myRow}>
             {row.map((_, colIndex) => (
