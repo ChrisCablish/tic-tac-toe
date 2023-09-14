@@ -15,6 +15,6 @@
       "noEmit": true,
       "jsx": "react-jsx"
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx", "src/index.js"],
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src/index.js", "src/components/MainPanel/GamePanel/SingleSquare/SingleSquare.js", "src/components/MainPanel/GamePanel/GamePanel.js", "src/components/MainPanel/MainPanel.js", "src/App.js"],
     "exclude": ["node_modules"]
   }  

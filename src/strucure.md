@@ -5,7 +5,10 @@ App.js
 | |-MenuPanel.tsx
 | |
 | |-GamePanel.tsx
-|
+| |
+| |-Header.js
+| |
+| |-Score.js
 |
 |-EndPanel.js (dislays over top of MainPanel.js once game is complete or restart is clicked )
 | |
