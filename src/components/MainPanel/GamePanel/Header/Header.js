@@ -9,7 +9,7 @@ import buttonImage from "../../../../assets/icon-restart.svg";
 import xIcon from "../../../../assets/icon-x.svg";
 import oIcon from "../../../../assets/icon-o.svg";
 
-const Header = ({ turn }) => {
+const Header = ({ turnCounter }) => {
   return (
     <Row className={styles.myRow}>
       <Col className={`${styles.myCol} ${styles.left}`}>
@@ -17,7 +17,7 @@ const Header = ({ turn }) => {
       </Col>
       <Col className={`${styles.myCol} ${styles.center}`}>
         <div className={styles.iconHolder}>
-          <img src={turn === "p1" ? xIcon : oIcon}></img>
+          <img src={turnCounter % 2 === 0 ? oIcon : xIcon}></img>
         </div>
         <span>Turn</span>
       </Col>
