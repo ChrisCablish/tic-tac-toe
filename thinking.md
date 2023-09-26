@@ -37,3 +37,24 @@ X is always first up
 If player1 picks x, then player one goes first and uses x to select
 
 if player one picks o, then player 2 goes first with x
+
+// 1. Decide if p1 is X or O (p2 will be opposite)
+// 2. Symbol turn odd = X's turn even = O's turn. Always start with 1 (odd) use counter variable
+// 3. When a square is clicked, change board State to populate that square with an object
+
+// theObject = {
+// symbol: counter
+// player: 1
+// }
+
+// THERE IS A SYMBOL STATE AND A PLAYER STATE
+// SYMBOL STATE ALWAYS STARTS WITH X AND CHANGES EVERY TURN
+// PLAYER STATE CAN START AT 1 OR 2 DEPENDING ON WHAT IS CLICKED IN MENU PANEL
+
+// if player state is 2 and symbol state is "x" then square which was clicked during those states is populated
+// as follows
+
+// theObject = {
+// symbol: "x"
+// player: 2
+// }

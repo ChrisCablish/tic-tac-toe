@@ -10,13 +10,13 @@ import iconO from "../../../assets/icon-o-outline.svg";
 import symbolStructure from "../symbolStructure";
 import React, { useState, useEffect } from "react";
 
-const MenuPanel = ({ turn, setTurn }) => {
-  const xClickHandler = () => {
-    setTurn(symbolStructure.playerOneIsX.X); //turn is set to "p1"
-  };
-
-  const oClickHandler = () => {
-    setTurn(symbolStructure.playerTwoIsX.X); //turn is set to "p2"
+const MenuPanel = ({ playerTurn, setPlayerTurn }) => {
+  const clickHandler = (symbol) => {
+    symbol === "x"
+      ? setPlayerTurn(1)
+      : symbol === "o"
+      ? setPlayerTurn(2)
+      : setPlayerTurn(null);
   };
 
   return (
@@ -28,10 +28,10 @@ const MenuPanel = ({ turn, setTurn }) => {
         <span>Pick Player 1's Mark</span>
         <Container>
           <Row>
-            <Col className={styles.symbolHolder} onClick={xClickHandler}>
+            <Col className={styles.symbolHolder} onClick={clickHandler("x")}>
               <img src={iconX}></img>
             </Col>
-            <Col className={styles.symbolHolder} onClick={oClickHandler}>
+            <Col className={styles.symbolHolder} onClick={clickHandler("o")}>
               <img src={iconO}></img>
             </Col>
           </Row>

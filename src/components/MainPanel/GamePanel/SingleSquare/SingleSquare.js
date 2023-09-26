@@ -5,8 +5,8 @@ import { ReactComponent as OIcon } from "../../../../assets/icon-o.svg"; // Assu
 const SingleSquare = ({ clickedSquare }) => {
   return (
     <div className="icon-holder">
-      {clickedSquare === "p1" && <XIcon />}
-      {clickedSquare === "p2" && <OIcon />}
+      {clickedSquare && clickedSquare.symbol === "x" && <XIcon />}
+      {clickedSquare && clickedSquare.symbol === "o" && <OIcon />}
     </div>
   );
 };
