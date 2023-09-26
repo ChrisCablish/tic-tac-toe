@@ -18,16 +18,6 @@ const GamePanel = ({ turn, setTurn }) => {
     if (!boardState[rowIndex][colIndex]) {
       const newBoardState = boardState.map((row) => row.slice());
 
-      //**For the line directly below this comment */
-      // what if i stored an object like this
-      // {
-      //   turn:turn,
-      //    symbol: x
-      //   }
-
-      //inside of newBoardState so that both symbol and turn could be accessed by SingleSquare to decide what symbol renders?? (check out
-      //conditionals inside SingleSquare. i.e - i want an XIcon to render if it is player ones turn and player ones symbol is x)
-
       newBoardState[rowIndex][colIndex] = turn;
       setBoardState(newBoardState);
       setTurn(turn === "p1" ? "p2" : "p1");
