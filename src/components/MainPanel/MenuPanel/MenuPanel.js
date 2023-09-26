@@ -18,6 +18,7 @@ const MenuPanel = ({ turn, setTurn }) => {
   const oClickHandler = () => {
     setTurn(symbolStructure.playerTwoIsX.X); //turn is set to "p2"
   };
+  //this is the master branch
 
   return (
     <div className={styles.menu}>
