@@ -8,11 +8,16 @@ import Header from "./Header/Header";
 import Score from "./Score/Score";
 import React, { useState, useEffect } from "react";
 
+// Importing utility functions
+import * as gameUtils from "../../../utils/gameUtils";
+
 const GamePanel = ({
   turnCounter,
   setTurnCounter,
   playerTurn,
   setPlayerTurn,
+  gameState,
+  setGameState,
 }) => {
   const [boardState, setBoardState] = useState(
     new Array(3).fill(null).map(() => new Array(3).fill(null))
@@ -30,62 +35,18 @@ const GamePanel = ({
       setTurnCounter((prevCounter) => prevCounter + 1);
       setPlayerTurn(playerTurn === 1 ? 2 : 1);
     }
+  };
 
-    if (inspectForWins("x")) {
+  useEffect(() => {
+    if (gameUtils.inspectForWins(boardState, "x")) {
+      setGameState("end");
       console.log("x wins the round");
     }
-
-    if (inspectForWins("o")) {
+    if (gameUtils.inspectForWins(boardState, "o")) {
+      setGameState("end");
       console.log("o wins the round");
     }
-  };
-
-  const inspectForHorizontalWin = (symbol) => {
-    return (
-      boardState[0].every((square) => square && square.symbol === symbol) ||
-      boardState[1].every((square) => square && square.symbol === symbol) ||
-      boardState[2].every((square) => square && square.symbol === symbol)
-    );
-  };
-
-  const inspectForVerticalWin = (symbol) => {
-    return (
-      boardState.every((row) => row[0] && row[0].symbol === symbol) ||
-      boardState.every((row) => row[1] && row[1].symbol === symbol) ||
-      boardState.every((row) => row[2] && row[2].symbol === symbol)
-    );
-  };
-
-  const inspectForDiagonalDownWin = (symbol) => {
-    return boardState[0][0] &&
-      boardState[0][0].symbol === symbol &&
-      boardState[1][1] &&
-      boardState[1][1].symbol === symbol &&
-      boardState[2][2] &&
-      boardState[2][2].symbol === symbol
-      ? true
-      : false;
-  };
-
-  const inspectForDiagonalUpWin = (symbol) => {
-    return boardState[2][0] &&
-      boardState[2][0].symbol === symbol &&
-      boardState[1][1] &&
-      boardState[1][1].symbol === symbol &&
-      boardState[0][2] &&
-      boardState[0][2].symbol === symbol
-      ? true
-      : false;
-  };
-
-  const inspectForWins = (symbol) => {
-    return (
-      inspectForVerticalWin(symbol) ||
-      inspectForHorizontalWin(symbol) ||
-      inspectForDiagonalDownWin(symbol) ||
-      inspectForDiagonalUpWin(symbol)
-    );
-  };
+  });
 
   const renderCol = (rowIndex, colIndex) => {
     return (

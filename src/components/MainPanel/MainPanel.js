@@ -21,6 +21,8 @@ const MainPanel = ({ gameState, setGameState }) => {
           setPlayerTurn={setPlayerTurn}
           turnCounter={turnCounter}
           setTurnCounter={setTurnCounter}
+          gameState={gameState}
+          setGameState={setGameState}
         />
       )}
     </div>
