@@ -7,16 +7,19 @@ import styles from "./MenuPanel.module.scss";
 import logo from "../../../assets/logo.svg";
 import iconX from "../../../assets/icon-x-outline.svg";
 import iconO from "../../../assets/icon-o-outline.svg";
-import symbolStructure from "../symbolStructure";
 import React, { useState, useEffect } from "react";
 
-const MenuPanel = ({ turn, setTurn }) => {
-  const xClickHandler = () => {
-    setTurn(symbolStructure.playerOneIsX.X); //turn is set to "p1"
+const MenuPanel = ({ setGameState, setPlayerTurn }) => {
+  const symbolClickHandler = (symbol) => {
+    symbol === "x"
+      ? setPlayerTurn(1)
+      : symbol === "o"
+      ? setPlayerTurn(2)
+      : setPlayerTurn(null);
   };
 
-  const oClickHandler = () => {
-    setTurn(symbolStructure.playerTwoIsX.X); //turn is set to "p2"
+  const opponentTypeClickHandler = (opponentType) => {
+    setGameState("in-progress");
   };
   //this is the master branch
 
@@ -29,10 +32,16 @@ const MenuPanel = ({ turn, setTurn }) => {
         <span>Pick Player 1's Mark</span>
         <Container>
           <Row>
-            <Col className={styles.symbolHolder} onClick={xClickHandler}>
+            <Col
+              className={styles.symbolHolder}
+              onClick={() => symbolClickHandler("x")}
+            >
               <img src={iconX}></img>
             </Col>
-            <Col className={styles.symbolHolder} onClick={oClickHandler}>
+            <Col
+              className={styles.symbolHolder}
+              onClick={() => symbolClickHandler("o")}
+            >
               <img src={iconO}></img>
             </Col>
           </Row>
@@ -41,7 +50,14 @@ const MenuPanel = ({ turn, setTurn }) => {
       </div>
       <div className={styles.buttonHolder}>
         <button className={styles.vsCPU}>New Game (vs CPU)</button>
-        <button className={styles.vsPlayer}>New Game (vs Player)</button>
+        <button
+          className={styles.vsPlayer}
+          onClick={() => {
+            opponentTypeClickHandler("player");
+          }}
+        >
+          New Game (vs Player)
+        </button>
       </div>
     </div>
   );
