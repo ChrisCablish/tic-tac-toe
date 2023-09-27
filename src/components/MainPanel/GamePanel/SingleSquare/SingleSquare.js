@@ -1,12 +1,12 @@
 import React from "react";
 import { ReactComponent as XIcon } from "../../../../assets/icon-x.svg";
-import { ReactComponent as OIcon } from "../../../../assets/icon-o.svg"; // Assuming you meant OIcon for YIcon
+import { ReactComponent as OIcon } from "../../../../assets/icon-o.svg";
 
-const SingleSquare = ({ clickedSquare }) => {
+const SingleSquare = ({ squareData }) => {
   return (
     <div className="icon-holder">
-      {clickedSquare && clickedSquare.symbol === "x" && <XIcon />}
-      {clickedSquare && clickedSquare.symbol === "o" && <OIcon />}
+      {squareData && squareData.symbol === "x" && <XIcon />}
+      {squareData && squareData.symbol === "o" && <OIcon />}
     </div>
   );
 };

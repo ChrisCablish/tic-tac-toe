@@ -1,9 +1,21 @@
 import "./App.css";
 import MainPanel from "./components/MainPanel/MainPanel";
+import EndPanel from "./components/EndPanel/EndPanel";
 import React, { useState } from "react";
-import symbolStructure from "./components/MainPanel/symbolStructure";
 
 function App() {
-  return <MainPanel />;
+  const [gameState, setGameState] = useState("pre");
+
+  return (
+    <>
+      {(gameState === "pre" || gameState === "in-progress") && (
+        <MainPanel gameState={gameState} setGameState={setGameState} />
+      )}
+      {gameState === "end" && (
+        <EndPanel gameState={gameState} setGameState={setGameState} />
+      )}
+    </>
+  );
 }
+
 export default App;

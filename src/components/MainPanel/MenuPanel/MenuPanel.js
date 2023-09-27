@@ -7,16 +7,19 @@ import styles from "./MenuPanel.module.scss";
 import logo from "../../../assets/logo.svg";
 import iconX from "../../../assets/icon-x-outline.svg";
 import iconO from "../../../assets/icon-o-outline.svg";
-import symbolStructure from "../symbolStructure";
 import React, { useState, useEffect } from "react";
 
-const MenuPanel = ({ playerTurn, setPlayerTurn }) => {
-  const clickHandler = (symbol) => {
+const MenuPanel = ({ setGameState, setPlayerTurn }) => {
+  const symbolClickHandler = (symbol) => {
     symbol === "x"
       ? setPlayerTurn(1)
       : symbol === "o"
       ? setPlayerTurn(2)
       : setPlayerTurn(null);
+  };
+
+  const opponentTypeClickHandler = (opponentType) => {
+    setGameState("in-progress");
   };
 
   return (
@@ -28,10 +31,16 @@ const MenuPanel = ({ playerTurn, setPlayerTurn }) => {
         <span>Pick Player 1's Mark</span>
         <Container>
           <Row>
-            <Col className={styles.symbolHolder} onClick={clickHandler("x")}>
+            <Col
+              className={styles.symbolHolder}
+              onClick={() => symbolClickHandler("x")}
+            >
               <img src={iconX}></img>
             </Col>
-            <Col className={styles.symbolHolder} onClick={clickHandler("o")}>
+            <Col
+              className={styles.symbolHolder}
+              onClick={() => symbolClickHandler("o")}
+            >
               <img src={iconO}></img>
             </Col>
           </Row>
@@ -40,7 +49,14 @@ const MenuPanel = ({ playerTurn, setPlayerTurn }) => {
       </div>
       <div className={styles.buttonHolder}>
         <button className={styles.vsCPU}>New Game (vs CPU)</button>
-        <button className={styles.vsPlayer}>New Game (vs Player)</button>
+        <button
+          className={styles.vsPlayer}
+          onClick={() => {
+            opponentTypeClickHandler("player");
+          }}
+        >
+          New Game (vs Player)
+        </button>
       </div>
     </div>
   );
