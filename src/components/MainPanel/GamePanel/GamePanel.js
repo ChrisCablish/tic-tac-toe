@@ -37,16 +37,19 @@ const GamePanel = ({
     }
   };
 
+  const XWinObject = gameUtils.inspectForWins(boardState, "x");
+  const OWinObject = gameUtils.inspectForWins(boardState, "o");
+
   useEffect(() => {
-    if (gameUtils.inspectForWins(boardState, "x")) {
+    if (XWinObject) {
       setGameState("end");
-      console.log("x wins the round");
+      console.log(`Player ${XWinObject.player} wins the round`);
     }
-    if (gameUtils.inspectForWins(boardState, "o")) {
+    if (OWinObject) {
       setGameState("end");
-      console.log("o wins the round");
+      console.log(`Player ${OWinObject.player} wins the round`);
     }
-  });
+  }, [boardState]);
 
   const renderCol = (rowIndex, colIndex) => {
     return (

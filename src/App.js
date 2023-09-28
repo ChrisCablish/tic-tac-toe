@@ -8,9 +8,9 @@ function App() {
 
   return (
     <>
-      {(gameState === "pre" || gameState === "in-progress") && (
-        <MainPanel gameState={gameState} setGameState={setGameState} />
-      )}
+      {/* main panel is alway showing - no render logic */}
+      <MainPanel gameState={gameState} setGameState={setGameState} />
+
       {gameState === "end" && (
         <EndPanel gameState={gameState} setGameState={setGameState} />
       )}

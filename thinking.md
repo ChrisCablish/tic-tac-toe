@@ -58,3 +58,40 @@ if player one picks o, then player 2 goes first with x
 // symbol: "x"
 // player: 2
 // }
+
+boardInspect()
+
+I think I need a function that inspects the board after each move is made
+There are several conditions that this function will watch for that will cause the gameState to
+change from "in-progress" to "end"
+
+win boardsStates
+
+tie
+
+restart is click
+
+const boardStatesWhereXWins = [
+[{symbol: "x", player: 1},{symbol: "x", player: 1},{symbol: "x", player: 1}],
+[null,{symbol: "o", player: 2},null],
+[null,null,{symbol: "o", player: 2}],
+[//another possible boardState where x wins],
+[//another possible boardState where x wins]
+]
+
+    function takes in check parameter x or o ??
+
+    1.checks if the first row is all (x)'s
+    2.checks if the second row is all (x)'s
+    3.checks if the third row is all (x)'s
+    4.checks if the first col in each row are all (x)'s
+    5.checks if the second col in each row are all (x)'s
+    6.checks if the third col in each row are all (x)'s
+    7.checks if (1st) col in (1st) row is (x) && (2nd) col in (2nd) row is (x) && (3rd) col in (3rd) row is (x)
+    8.checks if (3rd) col in (1st) row is (x) && (2nd) col in (2nd) row is (x) && (1st) col in (3rd) row is (x)
+
+const Array = [1,1,1]
+
+if (Array[0] === 1 && Array[1] === 1 && Array[2] === 1) {
+//do some code
+}

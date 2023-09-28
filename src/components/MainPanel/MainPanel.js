@@ -15,7 +15,7 @@ const MainPanel = ({ gameState, setGameState }) => {
           setGameState={setGameState}
         />
       )}
-      {gameState === "in-progress" && (
+      {(gameState === "in-progress" || gameState === "end") && (
         <GamePanel
           playerTurn={playerTurn}
           setPlayerTurn={setPlayerTurn}
