@@ -43,11 +43,15 @@ const GamePanel = ({
   useEffect(() => {
     if (XWinObject) {
       setGameState("end");
-      console.log(`Player ${XWinObject.player} wins the round`);
+      console.log(
+        `Player ${XWinObject.player} wins the round. Their symbol is ${XWinObject.symbol}.`
+      );
     }
     if (OWinObject) {
       setGameState("end");
-      console.log(`Player ${OWinObject.player} wins the round`);
+      console.log(
+        `Player ${OWinObject.player} wins the round. Their symbol is ${OWinObject.symbol}.`
+      );
     }
   }, [boardState]);
 

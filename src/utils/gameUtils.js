@@ -1,20 +1,5 @@
 // gameUtils.js
 
-//instead of just returning true or false, I want these inspector functions to return boolean as well as which player won
-//these two results can be returned in an object
-// {
-//   won: true,
-//   player: 2
-// }
-
-// export const inspectForHorizontalWin = (boardState, symbol) => {
-//   return (
-//     boardState[0].every((square) => square && square.symbol === symbol) ||
-//     boardState[1].every((square) => square && square.symbol === symbol) ||
-//     boardState[2].every((square) => square && square.symbol === symbol)
-//   );
-// };
-
 const getPlayer = (boardState, symbol) => {
   let player;
   let found = false;
@@ -39,7 +24,7 @@ export const inspectForHorizontalWin = (boardState, symbol) => {
     boardState[2].every((square) => square && square.symbol === symbol);
   if (win) {
     const player = getPlayer(boardState, symbol);
-    return { won: true, player: player };
+    return { won: true, player: player, symbol: symbol };
   } else {
     return null;
   }
@@ -52,7 +37,7 @@ export const inspectForVerticalWin = (boardState, symbol) => {
     boardState.every((row) => row[2] && row[2].symbol === symbol);
   if (win) {
     const player = getPlayer(boardState, symbol);
-    return { won: true, player: player };
+    return { won: true, player: player, symbol: symbol };
   } else {
     return null;
   }
@@ -69,7 +54,7 @@ export const inspectForDiagonalDownWin = (boardState, symbol) => {
 
   if (win) {
     const player = getPlayer(boardState, symbol);
-    return { won: true, player: player };
+    return { won: true, player: player, symbol: symbol };
   } else {
     return null;
   }
@@ -86,34 +71,18 @@ export const inspectForDiagonalUpWin = (boardState, symbol) => {
 
   if (win) {
     const player = getPlayer(boardState, symbol);
-    return { won: true, player: player };
+    return { won: true, player: player, symbol: symbol };
   } else {
     return null;
   }
 };
 
-// export const inspectForWins = (boardState, symbol) => {
-//   return (
-//     inspectForVerticalWin(boardState, symbol) ||
-//     inspectForHorizontalWin(boardState, symbol) ||
-//     inspectForDiagonalDownWin(boardState, symbol) ||
-//     inspectForDiagonalUpWin(boardState, symbol)
-//   );
-// };
-
-// export const findPlayerWinner = (boardState, symbol) {
-//   const vert = inspectForVerticalWin(boardState, symbol);
-//   const horiz = inspectForHorizontalWin(boardState, symbol);
-//   const diagDown = inspectForDiagonalDownWin(boardState, symbol);
-//   const diagUp = inspectForDiagonalUpWin(boardState, symbol);
-// };
-
 export const inspectForWins = (boardState, symbol) => {
-  const vert = inspectForVerticalWin(boardState, symbol); //if there is a win, one of these will be an object instead of null
+  //this function will return null until someone wins at which point it returns a winObject e.g. {won: true, player: 1}
+  const vert = inspectForVerticalWin(boardState, symbol);
   const horiz = inspectForHorizontalWin(boardState, symbol);
   const diagDown = inspectForDiagonalDownWin(boardState, symbol);
   const diagUp = inspectForDiagonalUpWin(boardState, symbol);
-
   if (vert) {
     return vert;
   } else if (horiz) {
@@ -125,8 +94,4 @@ export const inspectForWins = (boardState, symbol) => {
   } else {
     return null;
   }
-
-  //THIS FUNCTION WILL RETURN NULL ON EACH RE-RENDER UNTIL SOMEONE WINS - make sure you deal withthat gracefully
-
-  //return an object {won: true, player: 1}
 };

@@ -95,3 +95,24 @@ const Array = [1,1,1]
 if (Array[0] === 1 && Array[1] === 1 && Array[2] === 1) {
 //do some code
 }
+
+Determine which player won and wich symbol won.
+display those winners
+
+takesTheRound()
+
+Render logic is based off of a few different factors
+
+Were you playing against a person or the computer?
+
+If person
+Player 1 wins! Player 2 Wins!
+
+If CPU
+Oh No, you lost
+You Won!
+
+The rest of the component is the same regardless of playing aginst person or CPU
+
+The goal for today is to try to make roundSummary work, that is
+Start with buttons Quit and Next Round

@@ -5,9 +5,9 @@ import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import styles from "./MenuPanel.module.scss";
 import logo from "../../../assets/logo.svg";
-import iconX from "../../../assets/icon-x-outline.svg";
-import iconO from "../../../assets/icon-o-outline.svg";
-import React, { useState, useEffect } from "react";
+import iconO from "../../../assets/selection-icon-o.svg";
+import iconX from "../../../assets/selection-icon-x.svg";
+// import React, { useState, useEffect } from "react";
 
 const MenuPanel = ({ setGameState, setPlayerTurn }) => {
   const symbolClickHandler = (symbol) => {
@@ -26,7 +26,7 @@ const MenuPanel = ({ setGameState, setPlayerTurn }) => {
   return (
     <div className={styles.menu}>
       <div className={styles.logoHolder}>
-        <img src={logo}></img>
+        <img src={logo} alt=""></img>
       </div>
       <div className={styles.symbolPicker}>
         <span>Pick Player 1's Mark</span>
@@ -36,13 +36,13 @@ const MenuPanel = ({ setGameState, setPlayerTurn }) => {
               className={styles.symbolHolder}
               onClick={() => symbolClickHandler("x")}
             >
-              <img src={iconX}></img>
+              <img src={iconX} alt=""></img>
             </Col>
             <Col
               className={styles.symbolHolder}
               onClick={() => symbolClickHandler("o")}
             >
-              <img src={iconO}></img>
+              <img src={iconO} alt=""></img>
             </Col>
           </Row>
         </Container>
