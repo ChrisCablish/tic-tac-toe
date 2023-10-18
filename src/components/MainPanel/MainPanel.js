@@ -3,7 +3,7 @@ import GamePanel from "./GamePanel/GamePanel";
 import MenuPanel from "./MenuPanel/MenuPanel";
 import styles from "./MainPanel.module.scss";
 
-const MainPanel = ({ gameState, setGameState }) => {
+const MainPanel = ({ gameState, setGameState, boardState, setBoardState }) => {
   const [playerTurn, setPlayerTurn] = useState(null);
   const [turnCounter, setTurnCounter] = useState(1);
   return (
@@ -23,6 +23,8 @@ const MainPanel = ({ gameState, setGameState }) => {
           setTurnCounter={setTurnCounter}
           gameState={gameState}
           setGameState={setGameState}
+          boardState={boardState}
+          setBoardState={setBoardState}
         />
       )}
     </div>

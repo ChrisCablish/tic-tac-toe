@@ -18,11 +18,9 @@ const GamePanel = ({
   setPlayerTurn,
   gameState,
   setGameState,
+  boardState,
+  setBoardState,
 }) => {
-  const [boardState, setBoardState] = useState(
-    new Array(3).fill(null).map(() => new Array(3).fill(null))
-  );
-
   const handleClick = (rowIndex, colIndex) => {
     if (!boardState[rowIndex][colIndex]) {
       const newBoardState = boardState.map((row) => row.slice());

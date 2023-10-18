@@ -1,9 +1,9 @@
 import RoundSummary from "./RoundSummary/RoundSummary";
 
-function EndPanel() {
+function EndPanel({ boardState, setBoardState }) {
   return (
     <div>
-      <RoundSummary />
+      <RoundSummary boardState={boardState} setBoardState={setBoardState} />
     </div>
   );
 }

@@ -3,15 +3,22 @@ import iconO from "../../../assets/icon-o.svg";
 
 import * as gameUtils from "../../../utils/gameUtils";
 
-const RoundSummary = () => {
+const RoundSummary = ({ boardState }) => {
+  const XWinObject = gameUtils.inspectForWins(boardState, "x");
+  const OWinObject = gameUtils.inspectForWins(boardState, "o");
   return (
     <>
-      <span>You Won!</span>
+      <span>
+        Player {XWinObject ? XWinObject.player : OWinObject.player} Wins
+      </span>
       <div className="symbol-winner">
-        <img
-          // src=conditional here
-          className="symbol"
-        ></img>
+        <div className="img-container">
+          <img
+            src={XWinObject ? iconX : iconO}
+            className="symbol"
+            alt="symbol"
+          ></img>
+        </div>
         <h1>Takes The Round</h1>
       </div>
       <div className="buttons">

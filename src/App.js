@@ -5,14 +5,27 @@ import React, { useState } from "react";
 
 function App() {
   const [gameState, setGameState] = useState("pre");
+  const [boardState, setBoardState] = useState(
+    new Array(3).fill(null).map(() => new Array(3).fill(null))
+  );
 
   return (
     <>
       {/* main panel is alway showing - no render logic */}
-      <MainPanel gameState={gameState} setGameState={setGameState} />
+      <MainPanel
+        gameState={gameState}
+        setGameState={setGameState}
+        boardState={boardState}
+        setBoardState={setBoardState}
+      />
 
       {gameState === "end" && (
-        <EndPanel gameState={gameState} setGameState={setGameState} />
+        <EndPanel
+          gameState={gameState}
+          setGameState={setGameState}
+          boardState={boardState}
+          setBoardState={setBoardState}
+        />
       )}
     </>
   );
