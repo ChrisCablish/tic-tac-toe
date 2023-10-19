@@ -3,9 +3,16 @@ import GamePanel from "./GamePanel/GamePanel";
 import MenuPanel from "./MenuPanel/MenuPanel";
 import styles from "./MainPanel.module.scss";
 
-const MainPanel = ({ gameState, setGameState, boardState, setBoardState }) => {
-  const [playerTurn, setPlayerTurn] = useState(null);
-  const [turnCounter, setTurnCounter] = useState(1);
+const MainPanel = ({
+  gameState,
+  setGameState,
+  boardState,
+  setBoardState,
+  playerTurn,
+  setPlayerTurn,
+  turnCounter,
+  setTurnCounter,
+}) => {
   return (
     <div className={styles.panel}>
       {gameState === "pre" && (

@@ -8,6 +8,8 @@ function App() {
   const [boardState, setBoardState] = useState(
     new Array(3).fill(null).map(() => new Array(3).fill(null))
   );
+  const [playerTurn, setPlayerTurn] = useState(null);
+  const [turnCounter, setTurnCounter] = useState(1);
 
   return (
     <>
@@ -17,6 +19,10 @@ function App() {
         setGameState={setGameState}
         boardState={boardState}
         setBoardState={setBoardState}
+        playerTurn={playerTurn}
+        setPlayerTurn={setPlayerTurn}
+        turnCounter={turnCounter}
+        setTurnCounter={setTurnCounter}
       />
 
       {gameState === "end" && (
@@ -25,6 +31,10 @@ function App() {
           setGameState={setGameState}
           boardState={boardState}
           setBoardState={setBoardState}
+          playerTurn={playerTurn}
+          setPlayerTurn={setPlayerTurn}
+          turnCounter={turnCounter}
+          setTurnCounter={setTurnCounter}
         />
       )}
     </>

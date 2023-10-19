@@ -3,9 +3,29 @@ import iconO from "../../../assets/icon-o.svg";
 
 import * as gameUtils from "../../../utils/gameUtils";
 
-const RoundSummary = ({ boardState }) => {
+const RoundSummary = ({
+  boardState,
+  setBoardState,
+  setGameState,
+  playerTurn,
+  setPlayerTurn,
+  turnCounter,
+  setTurnCounter,
+}) => {
   const XWinObject = gameUtils.inspectForWins(boardState, "x");
   const OWinObject = gameUtils.inspectForWins(boardState, "o");
+
+  const quitButtonHandler = () => {
+    //set game state to pre
+    setGameState("pre");
+    //empty the game board
+    setBoardState(new Array(3).fill(null).map(() => new Array(3).fill(null)));
+    //reset Player Turn
+    setPlayerTurn(1);
+    //reset turn Counter
+    setTurnCounter(1);
+  };
+
   return (
     <>
       <span>
@@ -22,8 +42,10 @@ const RoundSummary = ({ boardState }) => {
         <h1>Takes The Round</h1>
       </div>
       <div className="buttons">
-        <button>Quit</button>
-        <button>Next Round</button>
+        <button className="quit" onClick={quitButtonHandler}>
+          Quit
+        </button>
+        <button className="next-round">Next Round</button>
       </div>
     </>
   );

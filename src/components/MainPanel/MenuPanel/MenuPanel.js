@@ -33,7 +33,7 @@ const MenuPanel = ({ setGameState, setPlayerTurn }) => {
         <Container>
           <Row>
             <Col
-              className={styles.symbolHolder}
+              className={`${styles.symbolHolder} `}
               onClick={() => symbolClickHandler("x")}
             >
               <img src={iconX} alt=""></img>
