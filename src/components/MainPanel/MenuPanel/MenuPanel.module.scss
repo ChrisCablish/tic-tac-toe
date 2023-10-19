@@ -24,6 +24,10 @@
       display: flex;
       justify-content: center;
     }
+
+    .selected {
+      background-color: gray;
+    }
   }
 
   .buttonHolder {

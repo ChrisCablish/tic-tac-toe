@@ -8,7 +8,7 @@ function App() {
   const [boardState, setBoardState] = useState(
     new Array(3).fill(null).map(() => new Array(3).fill(null))
   );
-  const [playerTurn, setPlayerTurn] = useState(null);
+  const [playerTurn, setPlayerTurn] = useState(1);
   const [turnCounter, setTurnCounter] = useState(1);
 
   return (

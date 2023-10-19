@@ -9,7 +9,7 @@ import iconO from "../../../assets/selection-icon-o.svg";
 import iconX from "../../../assets/selection-icon-x.svg";
 // import React, { useState, useEffect } from "react";
 
-const MenuPanel = ({ setGameState, setPlayerTurn }) => {
+const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
   const symbolClickHandler = (symbol) => {
     symbol === "x"
       ? setPlayerTurn(1)
@@ -33,13 +33,17 @@ const MenuPanel = ({ setGameState, setPlayerTurn }) => {
         <Container>
           <Row>
             <Col
-              className={`${styles.symbolHolder} `}
+              className={`${styles.symbolHolder} ${
+                playerTurn === 1 ? styles.selected : ""
+              }`}
               onClick={() => symbolClickHandler("x")}
             >
               <img src={iconX} alt=""></img>
             </Col>
             <Col
-              className={styles.symbolHolder}
+              className={`${styles.symbolHolder} ${
+                playerTurn === 2 ? styles.selected : ""
+              }`}
               onClick={() => symbolClickHandler("o")}
             >
               <img src={iconO} alt=""></img>

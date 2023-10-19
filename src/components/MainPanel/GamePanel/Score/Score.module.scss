@@ -1,0 +1,22 @@
+.myRow {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.myCol {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  height: 2rem;
+  width: 6rem;
+}
+
+@media (min-width: 768px) {
+  .myCol {
+    height: 3.25rem;
+    width: 8.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+}

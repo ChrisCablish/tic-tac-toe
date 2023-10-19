@@ -26,6 +26,16 @@ const RoundSummary = ({
     setTurnCounter(1);
   };
 
+  const nextRoundButtonHandler = () => {
+    setGameState("in-progress");
+    //empty the game board
+    setBoardState(new Array(3).fill(null).map(() => new Array(3).fill(null)));
+    //reset Player Turn
+    setPlayerTurn(1);
+    //reset turn Counter
+    setTurnCounter(1);
+  };
+
   return (
     <>
       <span>
@@ -45,7 +55,9 @@ const RoundSummary = ({
         <button className="quit" onClick={quitButtonHandler}>
           Quit
         </button>
-        <button className="next-round">Next Round</button>
+        <button className="next-round" onClick={nextRoundButtonHandler}>
+          Next Round
+        </button>
       </div>
     </>
   );

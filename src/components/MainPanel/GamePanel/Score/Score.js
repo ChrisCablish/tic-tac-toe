@@ -3,12 +3,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
+import styles from "./Score.module.scss";
 
-const Score = () => {
+const Score = ({ winsByX, winsByO }) => {
   return (
-    <Container>
-      <span>Score</span>
-    </Container>
+    <Row className={styles.myRow}>
+      <Col className={styles.myCol}>
+        <span className="player">X</span>
+        <span className="number">{winsByX}</span>
+      </Col>
+      <Col className={styles.myCol}>
+        <span className="player">Ties</span>
+        <span className="number"></span>
+      </Col>
+      <Col className={styles.myCol}>
+        <span className="player">O</span>
+        <span className="number">{winsByO}</span>
+      </Col>
+    </Row>
   );
 };
 

@@ -38,18 +38,17 @@ const GamePanel = ({
   const XWinObject = gameUtils.inspectForWins(boardState, "x");
   const OWinObject = gameUtils.inspectForWins(boardState, "o");
 
+  const [winsByX, setWinsByX] = useState(0);
+  const [winsByO, setWinsByO] = useState(0);
+
   useEffect(() => {
     if (XWinObject) {
       setGameState("end");
-      console.log(
-        `Player ${XWinObject.player} wins the round. Their symbol is ${XWinObject.symbol}.`
-      );
+      setWinsByX(winsByX + 1);
     }
     if (OWinObject) {
       setGameState("end");
-      console.log(
-        `Player ${OWinObject.player} wins the round. Their symbol is ${OWinObject.symbol}.`
-      );
+      setWinsByO(winsByO + 1);
     }
   }, [boardState]);
 
@@ -77,8 +76,8 @@ const GamePanel = ({
             {row.map((_, colIndex) => renderCol(rowIndex, colIndex))}
           </Row>
         ))}
+        <Score winsByX={winsByX} winsByO={winsByO} />
       </Container>
-      <Score />
     </>
   );
 };
