@@ -1,20 +1,17 @@
-import iconX from "../../../assets/icon-x.svg";
-import iconO from "../../../assets/icon-o.svg";
-
+import WinMessage from "./WinMessage/WinMessage";
+import TieMessage from "./TieMessage/TieMessage";
 import * as gameUtils from "../../../utils/gameUtils";
 
 const RoundSummary = ({
   boardState,
   setBoardState,
   setGameState,
+  gameState,
   playerTurn,
   setPlayerTurn,
   turnCounter,
   setTurnCounter,
 }) => {
-  const XWinObject = gameUtils.inspectForWins(boardState, "x");
-  const OWinObject = gameUtils.inspectForWins(boardState, "o");
-
   const quitButtonHandler = () => {
     setGameState("pre");
     setBoardState(new Array(3).fill(null).map(() => new Array(3).fill(null)));
@@ -29,27 +26,28 @@ const RoundSummary = ({
     setTurnCounter(1);
   };
 
+  const XWinObject = gameUtils.inspectForWins(boardState, "x");
+  const OWinObject = gameUtils.inspectForWins(boardState, "o");
+
+  let isATie;
+  if (gameState === "end") {
+    if (!XWinObject && !OWinObject) {
+      isATie = true;
+    } else {
+      isATie = false;
+    }
+  }
+
   return (
     <>
-      <span>
-        Player{" "}
-        {XWinObject
-          ? XWinObject.player
-          : OWinObject
-          ? OWinObject.player
-          : "unknown"}{" "}
-        Wins
-      </span>
-      <div className="symbol-winner">
-        <div className="img-container">
-          <img
-            src={XWinObject ? iconX : iconO}
-            className="symbol"
-            alt="symbol"
-          ></img>
-        </div>
-        <h1>Takes The Round</h1>
-      </div>
+      {!isATie && (
+        <WinMessage
+          boardState={boardState}
+          XWinObject={XWinObject}
+          OWinObject={OWinObject}
+        />
+      )}
+      {isATie && <TieMessage />}
       <div className="buttons">
         <button className="quit" onClick={quitButtonHandler}>
           Quit
