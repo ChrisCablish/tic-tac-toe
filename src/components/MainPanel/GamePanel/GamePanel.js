@@ -76,7 +76,7 @@ const GamePanel = ({
   return (
     <>
       <Container className={styles.myContainer}>
-        <Header turnCounter={turnCounter} />
+        <Header turnCounter={turnCounter} setBoardState={setBoardState} />
         {boardState.map((row, rowIndex) => (
           <Row key={rowIndex} className={styles.myRow}>
             {row.map((_, colIndex) => renderCol(rowIndex, colIndex))}

@@ -9,7 +9,10 @@ import buttonImage from "../../../../assets/icon-restart.svg";
 import xIcon from "../../../../assets/icon-x.svg";
 import oIcon from "../../../../assets/icon-o.svg";
 
-const Header = ({ turnCounter }) => {
+const Header = ({ turnCounter, setBoardState }) => {
+  const resetButtonHandler = () => {
+    setBoardState(new Array(3).fill(null).map(() => new Array(3).fill(null)));
+  };
   return (
     <Row className={styles.myRow}>
       <Col className={`${styles.myCol} ${styles.left}`}>
@@ -22,7 +25,7 @@ const Header = ({ turnCounter }) => {
         <span>Turn</span>
       </Col>
       <Col className={`${styles.myCol} ${styles.right}`}>
-        <button>
+        <button onClick={resetButtonHandler}>
           <img src={buttonImage}></img>
         </button>
       </Col>
