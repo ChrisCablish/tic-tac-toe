@@ -1,8 +1,6 @@
 import iconX from "../../../../assets/icon-x.svg";
 import iconO from "../../../../assets/icon-o.svg";
 
-import * as gameUtils from "../../../../utils/gameUtils";
-
 const WinMessage = ({ boardState, XWinObject, OWinObject }) => {
   return (
     <>

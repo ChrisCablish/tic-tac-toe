@@ -1,4 +1,4 @@
-// @import "../../../_variables.scss";
+@import "../../../variables.scss";
 
 .menu {
   display: flex;
@@ -18,6 +18,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: $semi-dark-navy;
+
+    .pick {
+      color: $silver;
+    }
+
+    .reminder {
+      color: $opaque-silver;
+    }
 
     .symbolHolder {
       border: 1px solid black;
@@ -26,7 +35,7 @@
     }
 
     .selected {
-      background-color: gray;
+      background-color: $silver;
     }
   }
 
@@ -37,18 +46,13 @@
     gap: 1rem;
     width: 100%;
 
-    .vsCPU,
-    .vsPlayer {
-      //   width: 100%;
+    button {
+      color: $dark-navy;
+      background-color: $light-blue;
     }
   }
 }
 
 .iconXColor {
   color: #31c3bd; // Change this color as needed
-}
-
-img,
-svg {
-  color: blue;
 }

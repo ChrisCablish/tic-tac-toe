@@ -5,8 +5,10 @@ import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import styles from "./MenuPanel.module.scss";
 import logo from "../../../assets/logo.svg";
-import iconO from "../../../assets/selection-icon-o.svg";
-import iconX from "../../../assets/selection-icon-x.svg";
+import iconODark from "../../../assets/dark-fill-icon-o.svg";
+import iconXDark from "../../../assets/dark-fill-icon-x.svg";
+import iconOLight from "../../../assets/light-fill-icon-o.svg";
+import iconXLight from "../../../assets/light-fill-icon-x.svg";
 // import React, { useState, useEffect } from "react";
 
 const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
@@ -18,10 +20,9 @@ const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
       : setPlayerTurn(null);
   };
 
-  const opponentTypeClickHandler = (opponentType) => {
+  const startClickHandler = () => {
     setGameState("in-progress");
   };
-  //this is the master branch
 
   return (
     <div className={styles.menu}>
@@ -29,7 +30,7 @@ const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
         <img src={logo} alt=""></img>
       </div>
       <div className={styles.symbolPicker}>
-        <span>Pick Player 1's Mark</span>
+        <span className={styles.pick}>Pick Player 1's Mark</span>
         <Container>
           <Row>
             <Col
@@ -38,7 +39,7 @@ const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
               }`}
               onClick={() => symbolClickHandler("x")}
             >
-              <img src={iconX} alt=""></img>
+              <img src={playerTurn === 1 ? iconXDark : iconXLight} alt=""></img>
             </Col>
             <Col
               className={`${styles.symbolHolder} ${
@@ -46,21 +47,15 @@ const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
               }`}
               onClick={() => symbolClickHandler("o")}
             >
-              <img src={iconO} alt=""></img>
+              <img src={playerTurn === 2 ? iconODark : iconOLight} alt=""></img>
             </Col>
           </Row>
         </Container>
-        <span>Remember: X Goes First</span>
+        <span className={styles.reminder}>Remember: X Goes First</span>
       </div>
       <div className={styles.buttonHolder}>
-        <button className={styles.vsCPU}>New Game (vs CPU)</button>
-        <button
-          className={styles.vsPlayer}
-          onClick={() => {
-            opponentTypeClickHandler("player");
-          }}
-        >
-          New Game (vs Player)
+        <button className={styles.vsPlayer} onClick={startClickHandler}>
+          Start New Game (2 Player)
         </button>
       </div>
     </div>
