@@ -5,7 +5,7 @@ import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import styles from "./Score.module.scss";
 
-const Score = ({ winsByX, winsByO }) => {
+const Score = ({ winsByX, winsByO, ties }) => {
   return (
     <Row className={styles.myRow}>
       <Col className={styles.myCol}>
@@ -14,7 +14,7 @@ const Score = ({ winsByX, winsByO }) => {
       </Col>
       <Col className={styles.myCol}>
         <span className="player">Ties</span>
-        <span className="number"></span>
+        <span className="number">{ties}</span>
       </Col>
       <Col className={styles.myCol}>
         <span className="player">O</span>

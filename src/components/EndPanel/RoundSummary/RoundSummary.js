@@ -16,30 +16,29 @@ const RoundSummary = ({
   const OWinObject = gameUtils.inspectForWins(boardState, "o");
 
   const quitButtonHandler = () => {
-    //set game state to pre
     setGameState("pre");
-    //empty the game board
     setBoardState(new Array(3).fill(null).map(() => new Array(3).fill(null)));
-    //reset Player Turn
     setPlayerTurn(1);
-    //reset turn Counter
     setTurnCounter(1);
   };
 
   const nextRoundButtonHandler = () => {
     setGameState("in-progress");
-    //empty the game board
     setBoardState(new Array(3).fill(null).map(() => new Array(3).fill(null)));
-    //reset Player Turn
     setPlayerTurn(1);
-    //reset turn Counter
     setTurnCounter(1);
   };
 
   return (
     <>
       <span>
-        Player {XWinObject ? XWinObject.player : OWinObject.player} Wins
+        Player{" "}
+        {XWinObject
+          ? XWinObject.player
+          : OWinObject
+          ? OWinObject.player
+          : "unknown"}{" "}
+        Wins
       </span>
       <div className="symbol-winner">
         <div className="img-container">
@@ -62,5 +61,4 @@ const RoundSummary = ({
     </>
   );
 };
-
 export default RoundSummary;

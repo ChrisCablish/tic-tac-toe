@@ -40,6 +40,7 @@ const GamePanel = ({
 
   const [winsByX, setWinsByX] = useState(0);
   const [winsByO, setWinsByO] = useState(0);
+  const [ties, setTies] = useState(0);
 
   useEffect(() => {
     if (XWinObject) {
@@ -49,6 +50,11 @@ const GamePanel = ({
     if (OWinObject) {
       setGameState("end");
       setWinsByO(winsByO + 1);
+    }
+    const boardIsFull = boardState.flat().every((element) => element !== null);
+    if (boardIsFull && !XWinObject && !OWinObject) {
+      setGameState("end");
+      setTies(ties + 1);
     }
   }, [boardState]);
 
@@ -76,7 +82,7 @@ const GamePanel = ({
             {row.map((_, colIndex) => renderCol(rowIndex, colIndex))}
           </Row>
         ))}
-        <Score winsByX={winsByX} winsByO={winsByO} />
+        <Score winsByX={winsByX} winsByO={winsByO} ties={ties} />
       </Container>
     </>
   );
