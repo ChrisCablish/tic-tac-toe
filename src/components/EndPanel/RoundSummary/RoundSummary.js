@@ -1,5 +1,6 @@
 import WinMessage from "./WinMessage/WinMessage";
 import TieMessage from "./TieMessage/TieMessage";
+import styles from "./RoundSummary.module.scss";
 import * as gameUtils from "../../../utils/gameUtils";
 
 const RoundSummary = ({
@@ -48,7 +49,7 @@ const RoundSummary = ({
         />
       )}
       {isATie && <TieMessage />}
-      <div className="buttons">
+      <div className={styles.buttons}>
         <button className="quit" onClick={quitButtonHandler}>
           Quit
         </button>

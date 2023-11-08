@@ -1,5 +1,7 @@
+import styles from "./TieMessage.module.scss";
+
 const TieMessage = () => {
-  return <span>Round Tied</span>;
+  return <span className={styles.tied}>Round Tied</span>;
 };
 
 export default TieMessage;

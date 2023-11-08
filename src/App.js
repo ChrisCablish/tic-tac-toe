@@ -12,7 +12,7 @@ function App() {
   const [turnCounter, setTurnCounter] = useState(1);
 
   return (
-    <>
+    <div className="App">
       {/* main panel is alway showing - no render logic */}
       <MainPanel
         gameState={gameState}
@@ -26,18 +26,20 @@ function App() {
       />
 
       {gameState === "end" && (
-        <EndPanel
-          gameState={gameState}
-          setGameState={setGameState}
-          boardState={boardState}
-          setBoardState={setBoardState}
-          playerTurn={playerTurn}
-          setPlayerTurn={setPlayerTurn}
-          turnCounter={turnCounter}
-          setTurnCounter={setTurnCounter}
-        />
+        <div className="end-panel-wrapper">
+          <EndPanel
+            gameState={gameState}
+            setGameState={setGameState}
+            boardState={boardState}
+            setBoardState={setBoardState}
+            playerTurn={playerTurn}
+            setPlayerTurn={setPlayerTurn}
+            turnCounter={turnCounter}
+            setTurnCounter={setTurnCounter}
+          />
+        </div>
       )}
-    </>
+    </div>
   );
 }
 

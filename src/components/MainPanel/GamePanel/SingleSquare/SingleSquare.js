@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as XIcon } from "../../../../assets/icon-x.svg";
 import { ReactComponent as OIcon } from "../../../../assets/icon-o.svg";
 

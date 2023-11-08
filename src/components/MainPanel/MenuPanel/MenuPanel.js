@@ -32,14 +32,18 @@ const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
       <div className={styles.symbolPicker}>
         <span className={styles.pick}>Pick Player 1's Mark</span>
         <Container>
-          <Row>
+          <Row className={styles.bsRow}>
             <Col
               className={`${styles.symbolHolder} ${
                 playerTurn === 1 ? styles.selected : ""
               }`}
               onClick={() => symbolClickHandler("x")}
             >
-              <img src={playerTurn === 1 ? iconXDark : iconXLight} alt=""></img>
+              <img
+                className={styles.pickedLogo}
+                src={playerTurn === 1 ? iconXDark : iconXLight}
+                alt=""
+              ></img>
             </Col>
             <Col
               className={`${styles.symbolHolder} ${
@@ -47,7 +51,11 @@ const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
               }`}
               onClick={() => symbolClickHandler("o")}
             >
-              <img src={playerTurn === 2 ? iconODark : iconOLight} alt=""></img>
+              <img
+                className={styles.pickedLogo}
+                src={playerTurn === 2 ? iconODark : iconOLight}
+                alt=""
+              ></img>
             </Col>
           </Row>
         </Container>
@@ -55,7 +63,7 @@ const MenuPanel = ({ setGameState, playerTurn, setPlayerTurn }) => {
       </div>
       <div className={styles.buttonHolder}>
         <button className={styles.vsPlayer} onClick={startClickHandler}>
-          Start New Game (2 Player)
+          New Game (2 Player)
         </button>
       </div>
     </div>

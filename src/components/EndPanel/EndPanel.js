@@ -1,4 +1,5 @@
 import RoundSummary from "./RoundSummary/RoundSummary";
+import styles from "./EndPanel.module.scss";
 
 function EndPanel({
   boardState,
@@ -11,7 +12,7 @@ function EndPanel({
   setTurnCounter,
 }) {
   return (
-    <div>
+    <div className={styles.endPanel}>
       <RoundSummary
         boardState={boardState}
         setBoardState={setBoardState}

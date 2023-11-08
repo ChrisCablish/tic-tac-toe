@@ -1,10 +1,11 @@
 import iconX from "../../../../assets/icon-x.svg";
 import iconO from "../../../../assets/icon-o.svg";
+import styles from "./WinMessage.module.scss";
 
 const WinMessage = ({ boardState, XWinObject, OWinObject }) => {
   return (
     <>
-      <span>
+      <span className={styles.playerWins}>
         Player{" "}
         {XWinObject
           ? XWinObject.player
@@ -21,7 +22,7 @@ const WinMessage = ({ boardState, XWinObject, OWinObject }) => {
             alt="symbol"
           ></img>
         </div>
-        <h1>Takes The Round</h1>
+        <h1 className={styles.takes}>Takes The Round</h1>
       </div>
     </>
   );

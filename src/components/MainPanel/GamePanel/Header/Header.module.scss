@@ -1,6 +1,27 @@
+@import "../../../../variables.scss";
+
 .myRow {
   display: flex;
   gap: 1.5rem;
+}
+
+button {
+  background-color: $silver;
+  border: none;
+}
+
+.iconHolder {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.turn {
+  color: $silver;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.0625rem;
 }
 
 .myCol {
@@ -9,6 +30,7 @@
   border: 1px solid black;
   height: 2rem;
   width: 6rem;
+  background-color: $semi-dark-navy;
 }
 
 .left {

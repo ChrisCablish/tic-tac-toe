@@ -1,8 +1,16 @@
 
 
+.end-panel-wrapper {
+  position: absolute;
+  
+}
+
 .App {
   text-align: center;
-
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .App-logo {
