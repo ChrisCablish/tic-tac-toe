@@ -27,21 +27,27 @@ button {
 .myCol {
   display: flex;
   align-items: center;
-  border: 1px solid black;
+  // border: 1px solid black;
   height: 2rem;
   width: 6rem;
-  background-color: $semi-dark-navy;
 }
 
 .left {
   display: flex;
   justify-content: flex-start;
+
+  .logo {
+    //some stuff
+  }
 }
 
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $semi-dark-navy;
+  box-shadow: 0px -4px 0px 0px #10212a inset;
+  border-radius: $border-radius-game-pieces;
 
   .iconHolder {
     height: 1.25rem;
@@ -60,6 +66,12 @@ button {
 .right {
   display: flex;
   justify-content: flex-end;
+}
+
+.resetButton {
+  border-radius: 0.3rem;
+  overflow: hidden;
+  box-shadow: 0px 5px 0px 0px rgba(168, 191, 201, 0.2);
 }
 
 @media (min-width: 768px) {

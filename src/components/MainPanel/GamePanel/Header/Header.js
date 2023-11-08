@@ -16,7 +16,7 @@ const Header = ({ turnCounter, setBoardState }) => {
   return (
     <Row className={styles.myRow}>
       <Col className={`${styles.myCol} ${styles.left}`}>
-        <img src={logo}></img>
+        <img className={styles.logo} src={logo}></img>
       </Col>
       <Col className={`${styles.myCol} ${styles.center}`}>
         <div className={styles.iconHolder}>
@@ -25,7 +25,7 @@ const Header = ({ turnCounter, setBoardState }) => {
         <span className={styles.turn}>Turn</span>
       </Col>
       <Col className={`${styles.myCol} ${styles.right}`}>
-        <button onClick={resetButtonHandler}>
+        <button className={styles.resetButton} onClick={resetButtonHandler}>
           <img src={buttonImage}></img>
         </button>
       </Col>
