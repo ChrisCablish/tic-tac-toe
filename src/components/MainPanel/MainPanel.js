@@ -34,6 +34,8 @@ const MainPanel = ({
           setBoardState={setBoardState}
         />
       )}
+
+      {gameState === "end" && <div className={styles.blackout}></div>}
     </div>
   );
 };

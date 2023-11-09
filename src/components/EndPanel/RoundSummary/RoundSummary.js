@@ -40,7 +40,7 @@ const RoundSummary = ({
   }
 
   return (
-    <>
+    <div className={styles.wholeRoundSummary}>
       {!isATie && (
         <WinMessage
           boardState={boardState}
@@ -50,14 +50,23 @@ const RoundSummary = ({
       )}
       {isATie && <TieMessage />}
       <div className={styles.buttons}>
-        <button className="quit" onClick={quitButtonHandler}>
+        <button className={styles.quit} onClick={quitButtonHandler}>
           Quit
         </button>
-        <button className="next-round" onClick={nextRoundButtonHandler}>
+        <button
+          className={
+            XWinObject
+              ? styles.blue
+              : OWinObject
+              ? styles.yellow
+              : styles.yellow
+          }
+          onClick={nextRoundButtonHandler}
+        >
           Next Round
         </button>
       </div>
-    </>
+    </div>
   );
 };
 export default RoundSummary;

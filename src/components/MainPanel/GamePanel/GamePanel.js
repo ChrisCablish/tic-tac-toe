@@ -22,6 +22,10 @@ const GamePanel = ({
   setBoardState,
 }) => {
   const handleClick = (rowIndex, colIndex) => {
+    if (gameState === "end") {
+      return;
+    }
+
     if (!boardState[rowIndex][colIndex]) {
       const newBoardState = boardState.map((row) => row.slice());
       const squareData = {

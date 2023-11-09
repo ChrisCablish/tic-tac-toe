@@ -6,6 +6,29 @@
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.05469rem;
+  color: $silver;
+}
+
+.xWins {
+  color: $light-blue;
+}
+
+.oWins {
+  color: $light-yellow;
+}
+
+.imgContainer {
+  height: 1.875rem;
+  width: 1.875rem;
+  display: flex;
+}
+
+.symbolWinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem !important;
 }
 
 h1 {

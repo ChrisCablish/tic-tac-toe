@@ -5,4 +5,37 @@ button {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.0625rem;
+  padding: 1rem;
+  border-radius: 0.625rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.quit {
+  background-color: $silver;
+  color: $dark-navy;
+  box-shadow: 0px -4px 0px 0px #6b8997 inset;
+}
+
+.blue {
+  background-color: $light-blue;
+  color: $dark-navy;
+  box-shadow: 0px -4px 0px 0px #6b8997 inset;
+}
+
+.yellow {
+  background-color: $light-yellow;
+  color: $dark-navy;
+  box-shadow: 0px -4px 0px 0px #cc8b13 inset;
+}
+
+.wholeRoundSummary {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
 }

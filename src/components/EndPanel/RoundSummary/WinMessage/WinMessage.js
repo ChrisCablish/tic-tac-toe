@@ -14,15 +14,21 @@ const WinMessage = ({ boardState, XWinObject, OWinObject }) => {
           : "unknown"}{" "}
         Wins
       </span>
-      <div className="symbol-winner">
-        <div className="img-container">
+      <div className={styles.symbolWinner}>
+        <div className={styles.imgContainer}>
           <img
             src={XWinObject ? iconX : iconO}
             className="symbol"
             alt="symbol"
           ></img>
         </div>
-        <h1 className={styles.takes}>Takes The Round</h1>
+        <h1
+          className={`${styles.takes} ${
+            XWinObject ? styles.xWins : OWinObject ? styles.oWins : ""
+          }`}
+        >
+          Takes The Round
+        </h1>
       </div>
     </>
   );
