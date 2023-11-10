@@ -1,5 +1,3 @@
-import React from "react";
-import { Container } from "react-bootstrap";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,17 +14,17 @@ const Header = ({ turnCounter, setBoardState }) => {
   return (
     <Row className={styles.myRow}>
       <Col className={`${styles.myCol} ${styles.left}`}>
-        <img className={styles.logo} src={logo}></img>
+        <img className={styles.logo} src={logo} alt=""></img>
       </Col>
       <Col className={`${styles.myCol} ${styles.center}`}>
         <div className={styles.iconHolder}>
-          <img src={turnCounter % 2 === 0 ? oIcon : xIcon}></img>
+          <img src={turnCounter % 2 === 0 ? oIcon : xIcon} alt=""></img>
         </div>
         <span className={styles.turn}>Turn</span>
       </Col>
       <Col className={`${styles.myCol} ${styles.right}`}>
         <button className={styles.resetButton} onClick={resetButtonHandler}>
-          <img src={buttonImage}></img>
+          <img src={buttonImage} alt=""></img>
         </button>
       </Col>
     </Row>
