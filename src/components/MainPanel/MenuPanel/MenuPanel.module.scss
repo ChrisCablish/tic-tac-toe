@@ -6,8 +6,8 @@
   align-items: center;
   // border: 1px solid black;
   gap: 2rem;
-  width: 20.5rem;
-
+  // width: 20.5rem;
+  width: 90%;
   .logoHolder {
     // border: 1px solid black;
   }
@@ -84,4 +84,16 @@
 
 .iconXColor {
   color: #31c3bd;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .menu {
+    width: 30%;
+  }
 }
